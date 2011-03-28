@@ -1,0 +1,24 @@
+<% remote_form_for :hidden_fields,
+                   :url => hide_issue_fields_update_path(project, tracker),
+                   :html => {:class => "hide-issue-fields-settings-form", :method => :put},
+                   :before => 'selectAllOptions("hidden_fields_to_hide");',
+                   :complete => 'hide_issue_fields_connect_move_buttons()',
+                   :update => 'fields_for_tracker' do |hidden_fields_form| %>
+<fieldset>
+  <legend><%= tracker.name %></legend>
+  <table>
+    <tr>
+      <td>Fields</td>
+      <td><%= hidden_fields_form.select(:available_selections, available_for_this_tracker.map { |f| [f.name, f.id] }, {},
+			 :multiple => true, :size => 10, :class => "hide_issue_fields_multi_select") %></td>
+      <td>
+	<input type="button" value="&#8594;" class="hide_issue_fields_move_right" /><br />
+	<input type="button" value="&#8592;" class="hide_issue_fields_move_left" />
+      </td>
+      <td><%= hidden_fields_form.select(:to_hide, hidden_by_this_tracker.map { |f| [f.name, f.id] }, {},
+			 :multiple => true, :size => 10, :class => "hide_issue_fields_multi_select") %></td>
+    </tr>
+  </table>
+</fieldset>
+<%= submit_tag l(:button_update) %>
+<% end %>

@@ -1,0 +1,12 @@
+<% content_for :header_tags do %>
+  <%= javascript_include_tag "select_list_move" %>
+  <%= javascript_include_tag "settings", :plugin => "chiliproject_hide_issue_fields" %>
+  <%= stylesheet_link_tag "settings", :plugin => "chiliproject_hide_issue_fields" %>
+<% end %>
+
+<% tracker_picker_options = ([[]] + @project.trackers.map { |tracker|
+			       [tracker.name, hide_issue_fields_for_tracker_path(@project, tracker)] }) %>
+<%= select_tag "hide_issue_fields_settings_tracker_picker", options_for_select(tracker_picker_options) %>
+
+<div id="fields_for_tracker">
+</div>

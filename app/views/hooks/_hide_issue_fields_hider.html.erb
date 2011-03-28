@@ -1,0 +1,7 @@
+<% content_for :header_tags do %>
+  <%= javascript_include_tag "hider", :plugin => "chiliproject_hide_issue_fields" %>
+<% end %>
+
+<% hidden_fields.each do |field| %>
+  <span class="hide_issue_fields_hidden_field" style="display: none"><%= field.finder.finder %></span>
+<% end %>

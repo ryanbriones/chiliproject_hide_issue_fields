@@ -1,0 +1,13 @@
+<h2><%= l(:hide_issue_fields_title) %></h2>
+
+<% labelled_tabular_form_for :finder, @finder, 
+   :html => {:class => "tablular", :method => :put}, 
+   :url => hide_issue_fields_finder_path(@finder) do |finder_form| %>
+
+  <%= render :partial => "form", :locals => {:finder_form => finder_form} %>
+  
+  <%= submit_tag l(:button_update) %>
+  <%= link_to "Cancel", hide_issue_fields_finders_path %>
+<% end %>
+
+<% html_title(l(:hide_issue_fields_title)) %>

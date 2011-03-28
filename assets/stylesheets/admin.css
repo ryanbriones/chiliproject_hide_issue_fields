@@ -1,0 +1,7 @@
+#hide_issue_fields_finders .finder {
+    font-family: monospace;
+}
+
+#admin-menu .hide-issue-fields {
+    background-image: url("/images/textfield.png");
+}

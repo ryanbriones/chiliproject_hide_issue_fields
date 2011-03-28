@@ -1,0 +1,29 @@
+= ChiliProject: Hide Issue Fields plugin
+
+A ChiliProject plugin that allows you to specify Issue form fields to hide per tracker. 
+Specifications for hiding are configured via Javascript
+
+
+== Installation
+
+1. Get chiliproject_hide_issue_fields plugin code into your ChiliProject installation's vendor/plugins
+   
+   Plugin code at https://github.com/ryanbriones/chiliproject_hide_issue_fields
+2. <tt>rake db:migrate:plugins</tt>
+3. (Optional) <tt>rake hide_issue_fields:standard_fields</tt> to seed your ChiliProject installation with standard field finders
+4. Restart your ChiliProject installation (restart Mongrel, Passenger, Apache, etc)
+
+== Usage
+
+* Add new Issue field finders in "Administration" >> "Hide Issue Fields"
+* Configure Project to hide fields in "Projects" >> PROJECT NAME >> "Settings" >> "Hide Issue Fields"
+
+== TODO
+
+* refactor: clean up some technical debt left behind
+* test in production
+* nicer UI in settings
+
+== LICENSE
+
+MIT. See LICENSE in project root

@@ -1,0 +1,32 @@
+<h2><%= l(:hide_issue_fields_title) %></h2>
+
+<p>
+  This is the list of globally available fields (and their respective finders)
+  an Project admin can take advantage of
+</p>
+
+<table id="hide_issue_fields_finders" class="list">
+  <thead>
+    <tr>
+      <th>Field Name</th>
+      <th>Javascript Finder</th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @finders.each do |finder| %>
+      <tr>
+	<td><%= h(finder.name) %></td>
+	<td class="finder"><%= h(finder.finder) %></td>
+	<td><%= link_to "Edit", edit_hide_issue_fields_finder_path(finder) %></td>
+      </tr>
+    <% end %>
+</table>
+
+<p>
+  <%= link_to "New Field Finder", new_hide_issue_fields_finder_path,
+              :class => "icon icon-add" %>
+</p>
+
+<% html_title(l(:hide_issue_fields_title)) %>

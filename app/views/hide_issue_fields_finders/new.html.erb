@@ -1,0 +1,11 @@
+<h2><%= l(:hide_issue_fields_title) %></h2>
+
+<% labelled_tabular_form_for :finder, @finder, 
+   :html => {:class => "tablular"}, :url => hide_issue_fields_finders_path do |finder_form| %>
+
+  <%= render :partial => "form", :locals => {:finder_form => finder_form} %>
+  
+  <%= submit_tag l(:button_create) %>
+<% end %>
+
+<% html_title(l(:hide_issue_fields_title)) %>
