@@ -3,6 +3,13 @@
 A ChiliProject plugin that allows you to specify Issue form fields to hide per tracker. 
 Specifications for hiding are configured via Javascript
 
+== NOTE
+
+This plugin now requires a patch to the app/views/project/_settings.rhtml that uses
+Redmine::MenuManager to manage Project Settings tabs. See the following commit for more info
+
+https://github.com/ryanbriones/chiliproject/commit/40a86861b66a2c90f0a0a54b0ddc6b19139af681
+
 
 == Installation
 

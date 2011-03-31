@@ -16,12 +16,10 @@ Redmine::Plugin.register :chiliproject_hide_issue_fields do
        :hide_issue_fields, 
        {:controller => "hide_issue_fields_finders", :action => "index"}, 
        :caption => :hide_issue_fields_title)
-end
-
-require "dispatcher"
-Dispatcher.to_prepare :hide_issue_fields do
-  require_dependency "projects_controller"
-  ProjectsController.class_eval do
-    helper :hide_issue_fields
-  end
+       
+  menu(:project_settings_menu,
+       :hide_issue_fields,
+       {},
+       :html => {:partial => "projects/settings/hide_issue_fields"},
+       :caption => :hide_issue_fields_title)
 end
